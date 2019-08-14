@@ -2009,7 +2009,7 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
+.form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -4876,8 +4876,10 @@ input[type="button"].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
@@ -13694,7 +13696,7 @@ be a descendant of the grid when it is being dragged.
   color: rgba(0, 0, 0, 0.4);
 }
 
-.app-search__input:-ms-input-placeholder {
+.app-search__input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -14854,6 +14856,116 @@ be a descendant of the grid when it is being dragged.
 
 .messanger .sender button {
   border-radius: 0;
+}
+
+[dir=rtl] body {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir=rtl] .app-sidebar {
+  left: auto;
+  right: 0;
+}
+
+[dir=rtl] .app-sidebar__user-avatar {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+[dir=rtl] .dropdown-menu.dropdown-menu-right {
+  right: auto;
+  left: 0;
+}
+
+[dir=rtl] .list-unstyled, [dir=rtl] .app-nav, [dir=rtl] .app-menu, [dir=rtl] .treeview-menu,
+[dir=rtl] .app-nav,
+[dir=rtl] .app-menu,
+[dir=rtl] .user .user-tabs,
+[dir=rtl] .treeview-menu {
+  padding-right: 0;
+}
+
+[dir=rtl] .btn .icon,
+[dir=rtl] .btn .fa,
+[dir=rtl] .treeview-item .icon {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+[dir=rtl] .modal-header .close {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir=rtl] .modal-footer > :not(:last-child) {
+  margin-right: 0;
+  margin-left: 0.25rem;
+}
+
+[dir=rtl] .widget-small .icon {
+  border-radius: 0 4px 4px 0;
+}
+
+[dir=rtl] .user .timeline-post .post-media img {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+[dir=rtl] table.table-bordered.dataTable th:last-child,
+[dir=rtl] table.table-bordered.dataTable th:last-child,
+[dir=rtl] table.table-bordered.dataTable td:last-child,
+[dir=rtl] table.table-bordered.dataTable td:last-child {
+  border-right-width: 1px;
+}
+
+@media (min-width: 768px) {
+  [dir=rtl] .app-header {
+    padding-right: 0;
+    padding-left: 30px;
+  }
+  [dir=rtl] .app-content {
+    margin-left: 0;
+    margin-right: 230px;
+    -webkit-transition: margin-right 0.3s ease;
+    -o-transition: margin-right 0.3s ease;
+    transition: margin-right 0.3s ease;
+  }
+  [dir=rtl] .sidebar-mini.sidenav-toggled .app-content {
+    margin-left: 0;
+    margin-right: 50px;
+  }
+  [dir=rtl] .sidebar-mini.sidenav-toggled .app-menu__label,
+  [dir=rtl] .sidebar-mini.sidenav-toggled .treeview-menu {
+    left: auto;
+    right: 50px;
+  }
+  [dir=rtl] .sidebar-mini.sidenav-toggled .treeview .app-menu__label {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  [dir=rtl] .sidebar-mini.sidenav-toggled .treeview-menu {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 4px;
+  }
+  [dir=rtl] .sidebar-mini.sidenav-toggled .app-menu__label {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  [dir=rtl] .app.sidenav-toggled .app-sidebar {
+    left: auto;
+    right: 0;
+  }
+  [dir=rtl] .app .app-sidebar {
+    left: auto;
+    right: -230px;
+  }
 }
 
 .login-content {
