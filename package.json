@@ -1,33 +1,25 @@
 {
-  "name": "vali-admin",
-  "version": "2.4.1",
-  "description": "An admin theme built with Bootstrap, sass and PugJs",
-  "devDependencies": {
-    "autoprefixer": "^7.2.6",
-    "grunt": "^1.0.3",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-postcss": "^0.8.0",
-    "grunt-sass": "^2.1.0"
-  },
-  "scripts": {
-    "dev": "grunt watch",
-    "build": "grunt build",
-    "start": "node node-dev-server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pratikborsadiya/vali-admin.git"
-  },
-  "keywords": [
-    "admin",
-    "dashboard",
-    "theme"
-  ],
-  "author": "Pratik Borsadiya",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pratikborsadiya/vali-admin/issues"
-  },
-  "homepage": "http://pratikborsadiya.in/blog/vali-admin"
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "axios": "^0.18",
+        "bootstrap": "^4.1.0",
+        "cross-env": "^5.1",
+        "jquery": "^3.2",
+        "laravel-mix": "^4.0.7",
+        "lodash": "^4.17.5",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.1.0",
+        "vue": "^2.5.17"
+    }
 }
