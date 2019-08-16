@@ -3,7 +3,7 @@ These parts solved
 1. auth user
 2. part admin in controller
 3. part routes in web.php
-   3.part admin in views
+4. part admin in views
 
 How to usage this app
 
