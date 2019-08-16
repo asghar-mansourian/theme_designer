@@ -8,4 +8,5 @@ class Role extends Model
 {
     protected $table = 'roles';
     protected $guarded = ['id'];
+    public $timestamps = false;
 }
