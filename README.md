@@ -10,3 +10,4 @@ How to usage this app
 1. composer install
 2. create database
 3. php artisan migrate
+4. php artisan db:seed
