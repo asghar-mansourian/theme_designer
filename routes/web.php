@@ -12,6 +12,10 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['auth.ad
 
     Route::get('/', 'DashboardController@dashboard');
     Route::get('dashboard', 'DashboardController@dashboard')->name('dashboard');
+    Route::resources([
+        'categories' => 'CategorieController',
+        'blogs' => 'BlogController'
+    ]);
 });
 
 Route::get('test', function () {
