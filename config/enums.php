@@ -2,6 +2,7 @@
 
 return [
   'category_type'  =>[
-      'blog' => 'blog'
+      'blog' => 'blog',
+      'menu' => 'menu'
   ]
 ];

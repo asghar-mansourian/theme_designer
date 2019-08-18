@@ -2,6 +2,7 @@ new Vue({
     el: '#containerAdmin',
     data: {
         title: "",
+        src:""
     },
     computed: {
         slug: function() {
@@ -30,6 +31,11 @@ new Vue({
             slug = slug.replace(/\s+/g, '-');
 
             return slug;
+        },
+        url:function(e){
+            const file = e.target.files[0];
+            this.src = URL.createObjectURL(file);
         }
+
     }
 });

@@ -1,4 +1,7 @@
 @extends('admin.master')
+@push('styles')
+    <link rel="stylesheet" href="{{url('css/admin/category.css')}}">
+@endpush
 @section('content')
   <div class="app-title">
             @component('admin.components.content_title', ['title' => 'dashboard'])
@@ -18,7 +21,7 @@
               <form>
                 <div class="form-group">
                   <label class="control-label">نام دسته بندی</label>
-                  <input class="form-control" type="text" name="name" placeholder="نام دسته بندی">
+                  <input class="form-control" v-model="title" type="text" name="name" placeholder="نام دسته بندی">
                 </div>
                 <div class="form-group">
                   <label class="control-label">پوزیشن</label>
@@ -26,38 +29,32 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label">Slug</label>
-                  <input type="text" name="slug" class="form-control">
+                  <input type="text" v-model="slug" name="slug" class="form-control">
                 </div>
                   <div class="form-group">
                       <label class="control-label">نوع</label>
                       <select name="type">
-                          {{-- @foreach(config('enums') as $type)
+                          @foreach(config('enums.category_type') as $type)
                               <option value="{{$type}}">{{$type}}</option>
-                              @endforeach --}}
+                              @endforeach
                       </select>
                   </div>
                   <div class="form-group">
                       <label class="control-label">اولویت</label>
                       <input type="number" name="priority" class="form-control">
                   </div>
-                <div class="form-group">
+                <div class="form-group ">
                   <label class="control-label">تصویر</label>
-                  <input class="form-control" name="img" type="file">
+                  <input class="form-control col-xl-3" @change="url" name="img" type="file">
+                    <img :src="src" class="col-xl-9" v-show="src">
                 </div>
-                <div class="form-group">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox">I accept the terms and conditions
-                    </label>
-                    <input v-model="title" type="text" id="title" name="title" placeholder="Enter post title"/>
-                    @{{ slug }}
+                  <div class="tile-footer">
+                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+
                   </div>
-                </div>
               </form>
             </div>
-            <div class="tile-footer">
-              <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
-            </div>
+
           </div>
         </div>
  </div>
