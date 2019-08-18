@@ -1,5 +1,5 @@
 new Vue({
-    el: '#container-admin',
+    el: '#containerAdmin',
     data: {
         title: "",
     },

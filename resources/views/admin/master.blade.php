@@ -1,5 +1,5 @@
     @include('admin.partials.head')
-  <body class="app sidebar-mini rtl" id="container-admin">
+  <body class="app sidebar-mini rtl" >
     <!-- Navbar-->
     @include('admin.partials.header')
     <!-- Sidebar menu-->

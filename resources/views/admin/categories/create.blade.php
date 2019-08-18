@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
             @endcomponent
 </div>
-<div class="container">
+<div class="container" id="containerAdmin">
      <div class="row">
         <div class="col-md-12">
           <div class="tile">
@@ -49,6 +49,8 @@
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox">I accept the terms and conditions
                     </label>
+                    <input v-model="title" type="text" id="title" name="title" placeholder="Enter post title"/>
+                    @{{ slug }}
                   </div>
                 </div>
               </form>
