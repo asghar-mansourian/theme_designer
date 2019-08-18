@@ -17,33 +17,32 @@
             <div class="tile-body">
               <form>
                 <div class="form-group">
-                  <label class="control-label">Name</label>
-                  <input class="form-control" type="text" placeholder="Enter full name">
+                  <label class="control-label">نام دسته بندی</label>
+                  <input class="form-control" type="text" name="name" placeholder="نام دسته بندی">
                 </div>
                 <div class="form-group">
-                  <label class="control-label">Email</label>
-                  <input class="form-control" type="email" placeholder="Enter email address">
+                  <label class="control-label">پوزیشن</label>
+                  <input class="form-control" type="number" placeholder="پوزیشن دسته بندی را وارد کنید.">
                 </div>
                 <div class="form-group">
-                  <label class="control-label">Address</label>
-                  <textarea class="form-control" rows="4" placeholder="Enter your address"></textarea>
+                  <label class="control-label">Slug</label>
+                  <input type="text" name="slug" class="form-control">
                 </div>
-                <div class="form-group">
-                  <label class="control-label">Gender</label>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Male
-                    </label>
+                  <div class="form-group">
+                      <label class="control-label">نوع</label>
+                      <select name="type">
+                          @foreach(config('enums') as $type)
+                              <option value="{{$type}}">{{$type}}</option>
+                              @endforeach
+                      </select>
                   </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Female
-                    </label>
+                  <div class="form-group">
+                      <label class="control-label">اولویت</label>
+                      <input type="number" name="priority" class="form-control">
                   </div>
-                </div>
                 <div class="form-group">
-                  <label class="control-label">Identity Proof</label>
-                  <input class="form-control" type="file">
+                  <label class="control-label">تصویر</label>
+                  <input class="form-control" name="img" type="file">
                 </div>
                 <div class="form-group">
                   <div class="form-check">
