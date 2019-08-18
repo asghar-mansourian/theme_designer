@@ -13,7 +13,7 @@ class CheckAuthAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
         if (!auth()->check())
             return redirect()->route('login');
