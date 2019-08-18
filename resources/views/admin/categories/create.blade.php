@@ -31,9 +31,9 @@
                   <div class="form-group">
                       <label class="control-label">نوع</label>
                       <select name="type">
-                          @foreach(config('enums') as $type)
+                          {{-- @foreach(config('enums') as $type)
                               <option value="{{$type}}">{{$type}}</option>
-                              @endforeach
+                              @endforeach --}}
                       </select>
                   </div>
                   <div class="form-group">
@@ -61,3 +61,7 @@
  </div>
 </div>
 @endsection
+@push('scripts')
+<script src="{{ url('js/admin/vue.dev.js')}}"></script>
+<script src="{{ url('js/admin/admin.js')}}"></script>
+@endpush
