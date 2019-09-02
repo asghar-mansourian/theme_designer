@@ -12,48 +12,56 @@
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
             @endcomponent
 </div>
-<div class="container" id="containerAdmin">
+<div class="container" id="container-category">
      <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Vertical Form</h3>
+            <h3 class="tile-title">ایجاد دسته بندی</h3>
             <div class="tile-body">
               <form>
                 <div class="form-group">
                   <label class="control-label">نام دسته بندی</label>
-                  <input class="form-control" v-model="title" type="text" name="name" placeholder="نام دسته بندی">
+                  <input class="form-control" v-model="name" type="text"  placeholder="نام دسته بندی">
                 </div>
                 <div class="form-group">
-                  <label class="control-label">پوزیشن</label>
-                  <input class="form-control" type="number" placeholder="پوزیشن دسته بندی را وارد کنید.">
-                </div>
-                <div class="form-group">
-                  <label class="control-label">Slug</label>
-                  <input type="text" v-model="slug" name="slug" class="form-control">
+                    <label for="my-select">زیر دسته</label>
+                    <categories @selectedcategoryid="getCategoryId" />
                 </div>
                   <div class="form-group">
-                      <label class="control-label">نوع</label>
-                      <select name="type">
-                          @foreach(config('enums.category_type') as $type)
+                          <label for="my-select">نوع منو</label>
+                          <select id="my-select" class="form-control"  v-model="type">
+                               @foreach(config('enums.category_types') as $type)
                               <option value="{{$type}}">{{$type}}</option>
                               @endforeach
-                      </select>
+                          </select>
+                      </div>
+                <div class="form-group">
+                    <label for="">موقعیت</label>
+                    <select class="form-control" v-model="position">
+                        @foreach (get_all_category_positions() as $position)
+                            <option value="{{ $position['code']  }}">{{ $position['description'] }}</option>
+                        @endforeach
+                    </select>
                   </div>
-                  <div class="form-group">
-                      <label class="control-label">اولویت</label>
-                      <input type="number" name="priority" class="form-control">
-                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">رشته اصلاق منحصربفرد</label>
+                  <input type="text" v-model="slug" name="slug" class="form-control">
+                </div>
                 <div class="form-group ">
                   <label class="control-label">تصویر</label>
                   <input class="form-control col-xl-3" @change="url" name="img" type="file">
                     <img :src="src" class="col-xl-9" v-show="src">
                 </div>
                   <div class="tile-footer">
-                      <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                      <button class="btn btn-primary" type="button" @click="store"><i class="fa fa-fw fa-lg fa-check-circle"></i>
+                        ثبت دسته</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#">
+                            <i class="fa fa-fw fa-lg fa-times-circle"></i>برگشت به لیست دسته بندی ها</a>
 
                   </div>
               </form>
             </div>
+
 
           </div>
         </div>
@@ -61,6 +69,5 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{ url('js/admin/vue.dev.js')}}"></script>
-<script src="{{ url('js/admin/admin.js')}}"></script>
+<script src="{{ mix('js/admin/app.js')}}"></script>
 @endpush
