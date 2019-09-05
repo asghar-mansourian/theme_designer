@@ -1,4 +1,7 @@
 <?php
+
+use Ramsey\Uuid\Uuid;
+
 if (!function_exists('get_all_category_positions')) {
     function get_all_category_positions()
     {
@@ -9,5 +12,15 @@ if (!function_exists('get_all_category_positions')) {
             }
         }
         return $all_positions;
+    }
+}
+if (!function_exists('upload_image')) {
+    function upload_image($dir, $file)
+    {
+        if ($file) {
+            $fileName = 'file-' . Uuid::uuid4()->toString() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path($dir), $fileName);
+            return $fileName;
+        }
     }
 }

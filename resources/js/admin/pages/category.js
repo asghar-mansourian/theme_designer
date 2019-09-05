@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Categories from "./../components/TreeSelectCategory";
+import Axios from "axios";
+import { emptyStatement } from "babel-types";
 
 new Vue({
     components: { Categories },
@@ -8,6 +10,7 @@ new Vue({
         selectedCategoryId: 0,
         name: "",
         src: "",
+        image: "",
         type: 'blog',
         position: 'PT1'
     },
@@ -23,8 +26,35 @@ new Vue({
             this.selectedCategoryId = categoryId;
         },
         store() {
-            let form_data = new FormData();
-            form_data.append('name', this.name);
+            if (!this.name) {
+                alert('فیلد نام نباید خالی باشد');
+            } else if (!this.slug) {
+                alert('فیلد رشته الصاق نباید خالی باشد');
+            } else if (!this.image) {
+                alert('فیلد تصویر نباید خالی باشد');
+            } else {
+                let form_data = new FormData();
+                form_data.append('name', this.name);
+                form_data.append('image', this.image);
+                form_data.append('slug', this.slug);
+                form_data.append('parentId', this.selectedCategoryId);
+                form_data.append('type', this.type);
+                form_data.append('position', this.position);
+                Axios({
+                        method: 'POST',
+                        url: "categories",
+                        data: form_data,
+                    })
+                    .then((response) => {
+                        alert('با موفقیت ثبت شد.');
+                        this.assign(this.$data, '');
+                    })
+                    .catch(function(error) {
+                        alert(error.response.data.slug);
+                        this.assign(this.$data, '');
+                    })
+            }
+
         },
         sanitizeName: function(name) {
             var slug = "";
@@ -51,6 +81,7 @@ new Vue({
         url: function(e) {
             const file = e.target.files[0];
             this.src = URL.createObjectURL(file);
+            this.image = file;
         }
     }
 });

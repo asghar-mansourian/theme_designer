@@ -50,11 +50,11 @@
                 </div>
                 <div class="form-group ">
                   <label class="control-label">تصویر</label>
-                  <input class="form-control col-xl-3" @change="url" name="img" type="file">
+                  <input class="form-control col-xl-3" @change="url" name="img" type="file" >
                     <img :src="src" class="col-xl-9" v-show="src">
                 </div>
                   <div class="tile-footer">
-                      <button class="btn btn-primary" type="button" @click="store"><i class="fa fa-fw fa-lg fa-check-circle"></i>
+                      <button class="btn btn-primary" type="submit"  @click="store"><i class="fa fa-fw fa-lg fa-check-circle"></i>
                         ثبت دسته</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#">
                             <i class="fa fa-fw fa-lg fa-times-circle"></i>برگشت به لیست دسته بندی ها</a>
 
