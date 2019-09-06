@@ -18,7 +18,7 @@ if (!function_exists('upload_image')) {
     function upload_image($dir, $file)
     {
         if ($file) {
-            $fileName = 'file-' . Uuid::uuid4()->toString() . '.' . $file->getClientOriginalExtension();
+            $fileName = 'image-' . Uuid::uuid4()->toString() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path($dir), $fileName);
             return $fileName;
         }

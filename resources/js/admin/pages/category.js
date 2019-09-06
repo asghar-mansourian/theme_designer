@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Categories from "./../components/TreeSelectCategory";
 import Axios from "axios";
+import swal from "sweetalert";
 import { emptyStatement } from "babel-types";
 
 new Vue({
@@ -25,8 +26,10 @@ new Vue({
         getCategoryId(categoryId) {
             this.selectedCategoryId = categoryId;
         },
-        store() {
+        validator() {
+            let messageMissingInput = '';
             if (!this.name) {
+<<<<<<< HEAD
                 alert('فیلد نام نباید خالی باشد');
             } else if (!this.slug) {
                 alert('فیلد رشته الصاق نباید خالی باشد');
@@ -56,7 +59,54 @@ new Vue({
                         alert(error.response.data.slug);
                         this.assign(this.$data, '');
                     })
+=======
+                messageMissingInput = 'فیلد نام نباید خالی باشد' + '\n';
             }
+            if (!this.slug) {
+                messageMissingInput += 'فیلد رشته اصلاق نباید خالی باشد' + '\n';
+            }
+            if (!this.image) {
+                messageMissingInput += 'فیلد تصویر نباید خالی باشد' + '\n';
+            }
+
+            if (!messageMissingInput.length)
+                return true;
+            else {
+                swal('خطا!', messageMissingInput, 'error');
+                return false;
+>>>>>>> f5e0b6e6e644e7b793a82ee581bc192add6106c9
+            }
+        },
+        store() {
+            if (!this.validator())
+                return false;
+
+            let form_data = new FormData();
+            form_data.append('name', this.name);
+            form_data.append('image', this.image);
+            form_data.append('slug', this.slug);
+            form_data.append('parent_id', this.selectedCategoryId);
+            form_data.append('type', this.type);
+            form_data.append('position', this.position);
+            Axios({
+                    method: 'POST',
+                    url: "categories",
+                    data: form_data,
+                })
+                .then((response) => {
+                    swal('موفق', 'دسته بندی با موفقیت ایجاد شد', 'success');
+                })
+                .catch(function(data) {
+                    let errors = data.response.data.errors;
+                    console.log(errors);
+                    let messageErrorsInput = '';
+                    for (var error in errors) {
+                        errors[error].forEach(item => {
+                            messageErrorsInput += item + '\n';
+                        });
+                    }
+                    swal('خطا!', messageErrorsInput, 'error');
+                })
 
         },
         sanitizeName: function(name) {
