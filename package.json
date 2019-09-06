@@ -24,6 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@riophae/vue-treeselect": "^0.2.0"
+        "@riophae/vue-treeselect": "^0.2.0",
+        "babel-types": "^6.26.0",
+        "sweetalert": "^2.1.2"
     }
 }
