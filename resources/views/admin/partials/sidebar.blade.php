@@ -14,9 +14,9 @@
                       class="app-menu__icon fa fa-list-alt"></i><span class="app-menu__label">مدیریت دسته بندی</span><i
                       class="treeview-indicator fa fa-angle-left"></i></a>
               <ul class="treeview-menu">
-                  <li><a class="treeview-item" href="{{route('admin.categories.index')}}"><i class="icon fa fa-plus"></i>
+                  <li><a class="treeview-item" href="{{route('admin.categories.create')}}"><i class="icon fa fa-plus"></i>
                           ایجاد </a></li>
-                  <li><a class="treeview-item" href="{{route('admin.categories.create')}}"
+                  <li><a class="treeview-item" href="{{route('admin.categories.index')}}"
                           rel="noopener"><i class="icon fa fa-list-alt"></i>لیست</a></li>
                     </ul>
           </li>

@@ -20,6 +20,7 @@
             <div class="tile-body">
               <form>
                 <div class="form-group">
+                    <img src="{{url('images/805.gif')}}" id="loader">
                   <label class="control-label">نام دسته بندی</label>
                   <input class="form-control" v-model="name" type="text"  placeholder="نام دسته بندی">
                 </div>
@@ -36,7 +37,7 @@
                           </select>
                       </div>
                 <div class="form-group">
-                    <label for="">موقعیت</label>
+                    <label for="">موقعیت</label>catcategoriesegories
                     <select class="form-control" v-model="position">
                         @foreach (get_all_category_positions() as $position)
                             <option value="{{ $position['code']  }}">{{ $position['description'] }}</option>

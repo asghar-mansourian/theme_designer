@@ -13,7 +13,8 @@ class CategoryController extends Controller
 
     public function index()
     {
-        return view('admin.categories.create');
+        $categories = Category::get();
+        return view('admin.categories.list', ['categories' => $categories]);
     }
 
     /**
@@ -23,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**

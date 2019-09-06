@@ -30988,15 +30988,18 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         form_data.append('parentId', this.selectedCategoryId);
         form_data.append('type', this.type);
         form_data.append('position', this.position);
+        $('#loader').css('display', 'block');
         axios__WEBPACK_IMPORTED_MODULE_2___default()({
           method: 'POST',
           url: "categories",
           data: form_data
         }).then(function (response) {
+          $('#loader').css('disp;ay', 'none');
           alert('با موفقیت ثبت شد.');
 
           _this.assign(_this.$data, '');
         })["catch"](function (error) {
+          $('#loader').css('display', 'none');
           alert(error.response.data.slug);
           this.assign(this.$data, '');
         });

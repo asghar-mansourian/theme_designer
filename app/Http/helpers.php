@@ -24,3 +24,27 @@ if (!function_exists('upload_image')) {
         }
     }
 }
+if (!function_exists('position_fetch')) {
+    function position_fetch($position)
+    {
+        switch ($position) {
+            case 'PT1':
+                return 'بالای صفحه گروه یک';
+                break;
+            case 'PT2':
+                return 'بالای صفحه گروه دوم';
+                break;
+            case 'PC1':
+                return 'وسط صفحه گروه یکم';
+                break;
+            case 'PC2':
+                return 'وسط صفحه گروه دوم';
+                break;
+            case 'PB1':
+                return 'پایین صفحه گروه یکم';
+                break;
+            case 'PB2':
+                return 'پایین صفحه گروه دوم';
+        }
+    }
+}

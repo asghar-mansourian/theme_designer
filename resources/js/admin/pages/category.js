@@ -40,16 +40,19 @@ new Vue({
                 form_data.append('parentId', this.selectedCategoryId);
                 form_data.append('type', this.type);
                 form_data.append('position', this.position);
+                $('#loader').css('display', 'block');
                 Axios({
                         method: 'POST',
                         url: "categories",
                         data: form_data,
                     })
                     .then((response) => {
+                        $('#loader').css('disp;ay', 'none');
                         alert('با موفقیت ثبت شد.');
                         this.assign(this.$data, '');
                     })
                     .catch(function(error) {
+                        $('#loader').css('display', 'none');
                         alert(error.response.data.slug);
                         this.assign(this.$data, '');
                     })
